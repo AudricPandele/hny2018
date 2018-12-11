@@ -1,0 +1,14 @@
+<span *ngIf="recette; else errorUrl">
+  <h3>{{ recette?.date }} | {{ recette?.price }} €</h3>
+  <h1>{{ recette?.title }}</h1>
+  <p>
+    {{ recette?.descritpion }}
+  </p>
+  <ul *ngFor='let ing of recette?.ingredients'>
+    <li>{{ ing?.name }} - {{ ing?.quantity }}</li>
+  </ul>
+</span>
+
+<ng-template #errorUrl class="text-center">
+  <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate">Loading ...</span>
+</ng-template>

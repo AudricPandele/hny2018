@@ -1,0 +1,7 @@
+<ul *ngFor="let rec of recettes">
+  <app-cookie-item [recette]="rec"></app-cookie-item>
+</ul>
+
+<div class="row text-center">
+  <a [routerLink]="['/add']" class="btn btn-primary" role="button">Add recipe</a>
+</div>
