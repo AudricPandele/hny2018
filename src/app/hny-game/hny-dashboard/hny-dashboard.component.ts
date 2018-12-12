@@ -10,7 +10,7 @@ import { User } from 'src/app/shared/models/User.model';
 })
 export class HnyDashboardComponent implements OnInit {
   hideTimer = false;
-  timeLeft = 2;
+  timeLeft = 900;
   finalTime: string;
   interval;
   game: Game;
@@ -47,7 +47,7 @@ export class HnyDashboardComponent implements OnInit {
   }
 
   gameFinished(hide) {
-    this.timeLeft = 5;
+    this.timeLeft = 900;
     this.hideTimer = hide;
     this.ngOnInit();
   }
