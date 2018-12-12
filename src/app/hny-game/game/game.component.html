@@ -1,4 +1,4 @@
-<div class='container'>
+<div [class.d-none]="hideGame" class='container'>
   <div class='row'>
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
@@ -17,4 +17,22 @@
       </div>
     </div>
   </div>
+</div>
+
+<div [class.d-none]="hideReward" class="alert alert-success alert-dismissible fade show">
+  <strong>Félicitations {{ user.name }} !</strong>
+  <hr>
+  {{ reward?.name }}: {{ reward?.description }}
+  <button (click)="relaunchTimer()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div [class.d-none]="hidePledge" class="alert alert-danger alert-dismissible fade show">
+  <strong>Dommage {{ user.name }} ...</strong>
+  <hr>
+  {{ pledge?.name }}: {{ pledge?.description }}
+  <button (click)="relaunchTimer()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>

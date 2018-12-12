@@ -28,7 +28,6 @@ export class HnyDashboardComponent implements OnInit {
         this.timeLeft = this.timeLeft - hours * 3600;
         this.finalTime = this.str_pad_left(minutes, '0', 2) + ':' + this.str_pad_left(seconds, '0', 2);
       } else {
-        //this.timeLeft = 5;
         this.loadGameAndUser();
         clearInterval(this.interval);
       }
@@ -38,21 +37,23 @@ export class HnyDashboardComponent implements OnInit {
   loadGameAndUser() {
     this.hnyService.getGames().subscribe(resp => {
       const games = resp;
-      this.game = games[Math.floor(Math.random() * games.length)];
+      this.game = this.hnyService.getRandomElement(games);
       this.hnyService.getusers().subscribe(respuser => {
         const users = respuser;
-        this.user = users[Math.floor(Math.random() * users.length)];
+        this.user = this.hnyService.getRandomElement(users);
         this.hideTimer = true;
       });
     });
   }
 
-  str_pad_left(string, pad, length) {
-    return (new Array(length + 1).join(pad) + string).slice(-length);
+  gameFinished(hide) {
+    this.timeLeft = 5;
+    this.hideTimer = hide;
+    this.ngOnInit();
   }
 
-  gameFinished() {
-    console.log(this.hideTimer);
+  str_pad_left(string, pad, length) {
+    return (new Array(length + 1).join(pad) + string).slice(-length);
   }
 
 }

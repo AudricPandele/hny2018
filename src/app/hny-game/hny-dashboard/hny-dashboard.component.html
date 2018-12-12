@@ -1,5 +1,7 @@
 <app-score></app-score>
 
-<h1 class="text-center text-success" [class.text-danger]="timeLeft <= 10" [class.text-warning]="timeLeft <= 60" [class.d-none]="hideTimer">{{finalTime}}</h1>
+<div class="center-screen" [class.d-none]="hideTimer">
+    <h1 class="text-center text-success" [class.text-danger]="timeLeft <= 10" [class.text-warning]="timeLeft <= 60">{{finalTime}}</h1>
+</div>
 
-<app-game *ngIf="hideTimer" [game]="game" [user]="user" [hideTimer]="hideTimer" (hideTimerChange)="gameFinished()"></app-game>
+<app-game *ngIf="hideTimer" [game]="game" [user]="user" [hideTimer]="hideTimer" (hideTimerChange)="gameFinished($event)"></app-game>
