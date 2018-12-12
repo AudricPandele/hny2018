@@ -46,9 +46,9 @@ export class GameComponent implements OnInit {
       () => {
         this.hnyService.getRewards().subscribe(resp => {
           this.reward = this.hnyService.getRandomElement(resp);
-          console.log(this.reward);
           this.hideGame = true;
           this.hideReward = false;
+          this.hnyService.reloadScores.next(true);
         });
       }
     );
@@ -77,6 +77,7 @@ export class GameComponent implements OnInit {
           this.pledge = this.hnyService.getRandomElement(resp);
           this.hideGame = true;
           this.hidePledge = false;
+          this.hnyService.reloadScores.next(true);
         });
       }
     );

@@ -13,6 +13,15 @@ export class ScoreComponent implements OnInit {
   constructor(private hnyService: HnyService) { }
 
   ngOnInit() {
+    this.loadUsers();
+    this.hnyService.reloadScores.subscribe(resp => {
+      if (resp) {
+        this.loadUsers();
+      }
+    });
+  }
+
+  loadUsers() {
     this.hnyService.getusers().subscribe((resp) => this.users = resp);
   }
 

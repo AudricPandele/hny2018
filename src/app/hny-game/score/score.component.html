@@ -1,10 +1,10 @@
 <div class="row">
-  <div *ngFor="let user of users" class="col-sm-3 text-center">
+  <div *ngFor="let user of users" class="col-sm-3 col-md-3 text-center">
     <img class="rounded-circle border-{{ user.color }}" src="{{ user.photo }}" alt="">
     <h5>{{ user.name }}</h5>
     <div class="row">
-      <div class="col-sm-4"></div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-md-4"></div>
+      <div class="col-sm-4 col-md-4">
           <span style="float: left" class="badge badge-pill badge-success">{{ user.game_win }}</span>
           <span style="float: right" class="badge badge-pill badge-danger">{{ user.game_loose }}</span>
       </div>

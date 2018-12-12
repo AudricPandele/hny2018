@@ -63,6 +63,7 @@ export class InMemoryServiceService implements InMemoryDbService {
         0,
         0,
         'success',
+        // tslint:disable-next-line:max-line-length
         'https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/22282090_10212765293321514_1772789672244739484_n.jpg?_nc_cat=110&_nc_ht=scontent-cdg2-1.xx&oh=b1ebd1927fc0e6a2d4bd3c0089b57a13&oe=5CA4DAFD'
       ),
       new User(
@@ -72,6 +73,7 @@ export class InMemoryServiceService implements InMemoryDbService {
         0,
         0,
         'primary',
+        // tslint:disable-next-line:max-line-length
         'https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/21616184_10212697078773941_3230088781841121742_n.jpg?_nc_cat=105&_nc_ht=scontent-cdg2-1.xx&oh=54c099249a518999212d0a4918781995&oe=5CAEDF26'
       ),
       new User(
@@ -81,6 +83,7 @@ export class InMemoryServiceService implements InMemoryDbService {
         0,
         0,
         'danger',
+        // tslint:disable-next-line:max-line-length
         'https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/16508969_10211918628021453_4099608215935869016_n.jpg?_nc_cat=104&_nc_ht=scontent-cdg2-1.xx&oh=3a9ab02bd0bcf858813c493019e18fae&oe=5C9B991B'
       ),
       new User(
@@ -90,6 +93,7 @@ export class InMemoryServiceService implements InMemoryDbService {
         0,
         0,
         'warning',
+        // tslint:disable-next-line:max-line-length
         'https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/27858049_1446750265435468_4813508910377459007_n.jpg?_nc_cat=105&_nc_ht=scontent-cdg2-1.xx&oh=97520a63b131afc3ec7f83022adbf2db&oe=5CB198BF'
       )
     ];
@@ -104,6 +108,7 @@ export class InMemoryServiceService implements InMemoryDbService {
       new Game(
         2,
         'Touché',
+        // tslint:disable-next-line:max-line-length
         'https://media.ouest-france.fr/v1/pictures/3d52c4f710df958f37e03ceb805ad42b-gilbert-montagne-raconte-comment-il-perdu-la-vue-la-naissance.jpg?width=1260&height=712&fill=0&focuspoint=50%2C25&cropresize=1',
         'Mettre la main dans un des pots.'
       ),
@@ -142,15 +147,15 @@ export class InMemoryServiceService implements InMemoryDbService {
     const pledges = [
       new Pledge(1, 'Il est des notres', 'Allé cul-sec !'),
       new Pledge(2, 'Et de 1', 'Bois 1 gorgée !'),
-      new Pledge(3, 'Et de 2', 'Bois 2 gorgée !'),
-      new Pledge(4, 'Et de 3', 'Bois 3 gorgée !'),
-      new Pledge(5, 'Et de 4', 'Bois 4 gorgée !'),
-      new Pledge(6, 'Et de 5', 'Bois 5 gorgée !'),
+      new Pledge(3, 'Et de 2', 'Bois 2 gorgées !'),
+      new Pledge(4, 'Et de 3', 'Bois 3 gorgées !'),
+      new Pledge(5, 'Et de 4', 'Bois 4 gorgées !'),
+      new Pledge(6, 'Et de 5', 'Bois 5 gorgées !'),
       new Pledge(7, 'Switch', 'Change ton verre avec ton voisin de droite.'),
       new Pledge(
         8,
         'Soumis',
-        'tu dois dire "Maître" ou "Maîtresse" a chaque fois que tu adresse la parole a ton voisin de gauche jusqu\'au prochain jeu.'
+        'Tu dois dire "Maître" ou "Maîtresse" a chaque fois que tu adresse la parole a ton voisin de gauche jusqu\'au prochain jeu.'
       ),
       new Pledge(
         9,

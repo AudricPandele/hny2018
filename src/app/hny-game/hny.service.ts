@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Game } from '../shared/models/Game.model';
 import { User } from '../shared/models/User.model';
 import { Reward } from '../shared/models/Reward.model';
@@ -10,6 +10,7 @@ import { Pledge } from '../shared/models/Pledge.model';
   providedIn: 'root'
 })
 export class HnyService {
+  public reloadScores = new BehaviorSubject<boolean>(false);
 
   constructor(private httpClient: HttpClient) { }
 
