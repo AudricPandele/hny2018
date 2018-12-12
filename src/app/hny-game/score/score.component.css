@@ -1,0 +1,19 @@
+.rounded-circle{
+  width: 50px;
+}
+
+.border-success{
+  border: 3px solid #155724;
+}
+
+.border-danger{
+  border: 3px solid #721c24;
+}
+
+.border-warning{
+  border: 3px solid #856404;
+}
+
+.border-primary{
+  border: 3px solid #0c5460;
+}

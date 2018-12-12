@@ -18,4 +18,8 @@ export class HnyService {
   getusers(): Observable<User[]> {
     return this.httpClient.get<User[]>('api/users');
   }
+
+  putUser(user): Observable<User> {
+    return this.httpClient.put<User>('api/users/' + user.id, user);
+  }
 }

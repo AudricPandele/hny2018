@@ -61,7 +61,7 @@ export class InMemoryServiceService implements InMemoryDbService {
     ];
 
     const games = [
-      new Game(1, 'Dégustation', 'http://www.le-roitelet.com/media/cache/photo_medium/uploads/img/activity/iStock_000033522418Small.jpg', 'Manger un des aliments au hasard.'),
+      new Game(1, 'Dégustation', 'http://www.le-roitelet.com/media/cache/photo_medium/uploads/img/activity/iStock_000033522418Small.jpg', 'Manger un des aliments a l\'aveugle.'),
       new Game(2, 'Touché', 'https://media.ouest-france.fr/v1/pictures/3d52c4f710df958f37e03ceb805ad42b-gilbert-montagne-raconte-comment-il-perdu-la-vue-la-naissance.jpg?width=1260&height=712&fill=0&focuspoint=50%2C25&cropresize=1', 'Mettre la main dans un des pots.'),
       new Game(3, 'Mime', 'https://image.freepik.com/free-photo/mime-shows-at-something-invisible-on-his-palm_1304-2808.jpg', 'Mimer une activité en moins de 30 secondes.'),
       new Game(4, 'Question', 'http://quipoquiz.com/fb-quipoquiz-1200x630.png', 'répondre a une question sur QuipoQuiz.'),
