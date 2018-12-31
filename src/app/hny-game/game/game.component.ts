@@ -15,28 +15,38 @@ export class GameComponent implements OnInit {
   @Input() hideTimer: boolean;
   @Output() hideTimerChange = new EventEmitter<boolean>();
   @Input() game: Game;
-  @Input() user: User;
+  @Input() users: Array<User>;
   hideReward = true;
   hidePledge = true;
   hideGame = false;
   pledge: Pledge;
   reward: Reward;
+  multiUsers = false;
   constructor(private hnyService: HnyService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.users.length > 1 ? this.multiUsers = true : this.multiUsers = false;
+    console.log(this.multiUsers);
+  }
 
-  win() {
-    const newUser = new User(
-      this.user.id,
-      this.user.name,
-      (this.user.game_played += 1),
-      (this.user.game_win += 1),
-      this.user.game_loose,
-      this.user.color,
-      this.user.photo
+  win(user) {
+    const toDelete: number = this.users.indexOf(user);
+    if (toDelete !== -1) {
+      this.users.splice(toDelete, 1);
+    }
+
+    // For winner
+    const newUserWin = new User(
+      user.id,
+      user.name,
+      (user.game_played += 1),
+      (user.game_win += 1),
+      user.game_loose,
+      user.color,
+      user.photo
     );
 
-    this.hnyService.putUser(newUser).subscribe(
+    this.hnyService.putUser(newUserWin).subscribe(
       resp => {
         this.hideReward = false;
       },
@@ -52,19 +62,49 @@ export class GameComponent implements OnInit {
         });
       }
     );
+
+    // For loosers
+    if (this.users.length > 0) {
+      for (let index = 0; index < this.users.length; index++) {
+        const newUserLoose = new User(
+          this.users[index].id,
+          this.users[index].name,
+          (this.users[index].game_played += 1),
+          this.users[index].game_win,
+          (this.users[index].game_loose += 1),
+          this.users[index].color,
+          this.users[index].photo
+        );
+        this.hnyService.putUser(newUserLoose).subscribe(
+          resp => {
+            console.log(resp);
+          },
+          error => {
+            console.log(error);
+          },
+          () => {
+            this.hnyService.getPledges().subscribe(resp => {
+              this.pledge = this.hnyService.getRandomElement(resp);
+              this.hideGame = true;
+              this.hidePledge = false;
+              this.hnyService.reloadScores.next(true);
+            });
+          }
+        );
+      }
+    }
   }
 
-  loose() {
+  loose(user) {
     const newUser = new User(
-      this.user.id,
-      this.user.name,
-      (this.user.game_played += 1),
-      this.user.game_win,
-      (this.user.game_loose += 1),
-      this.user.color,
-      this.user.photo
+      user.id,
+      user.name,
+      (user.game_played += 1),
+      user.game_win,
+      (user.game_loose += 1),
+      user.color,
+      user.photo
     );
-
     this.hnyService.putUser(newUser).subscribe(
       resp => {
         console.log(resp);

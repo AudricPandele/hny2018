@@ -10,11 +10,12 @@ import { User } from 'src/app/shared/models/User.model';
 })
 export class HnyDashboardComponent implements OnInit {
   hideTimer = false;
-  timeLeft = 900;
+  timeLeft = 2;
   finalTime: string;
   interval;
   game: Game;
-  user: User;
+  users: Array<User> = [];
+  allUsers: Array<User>;
 
   constructor(private hnyService: HnyService) {}
 
@@ -32,22 +33,39 @@ export class HnyDashboardComponent implements OnInit {
         clearInterval(this.interval);
       }
     }, 1000);
+
+    this.hnyService.getusers().subscribe(respuser => {
+      this.allUsers = respuser;
+    });
   }
 
   loadGameAndUser() {
     this.hnyService.getGames().subscribe(resp => {
       const games = resp;
       this.game = this.hnyService.getRandomElement(games);
-      this.hnyService.getusers().subscribe(respuser => {
-        const users = respuser;
-        this.user = this.hnyService.getRandomElement(users);
-        this.hideTimer = true;
-      });
+      this.users = [];
+      for (let index = 0; index < this.game.nb_participants; index++) {
+        const selectedUser = this.hnyService.getRandomElement(this.allUsers);
+        this.users.push(selectedUser);
+        const toDelete: number = this.allUsers.indexOf(selectedUser);
+        if (toDelete !== -1) {
+          this.allUsers.splice(toDelete, 1);
+        }
+      }
+      this.playAudio();
+      this.hideTimer = true;
     });
   }
 
+  playAudio() {
+    const audio = new Audio();
+    audio.src = '../../../assets/1049.wav';
+    audio.load();
+    audio.play();
+  }
+
   gameFinished(hide) {
-    this.timeLeft = 900;
+    this.timeLeft = 2;
     this.hideTimer = hide;
     this.ngOnInit();
   }

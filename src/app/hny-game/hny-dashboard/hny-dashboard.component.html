@@ -4,4 +4,4 @@
     <h1 class="display-1 text-center text-success" [class.text-danger]="timeLeft <= 10" [class.text-warning]="timeLeft <= 60">{{finalTime}}</h1>
 </div>
 
-<app-game *ngIf="hideTimer" [game]="game" [user]="user" [hideTimer]="hideTimer" (hideTimerChange)="gameFinished($event)"></app-game>
+<app-game *ngIf="hideTimer" [game]="game" [users]="users" [hideTimer]="hideTimer" (hideTimerChange)="gameFinished($event)"></app-game>

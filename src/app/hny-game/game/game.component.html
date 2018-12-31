@@ -2,25 +2,33 @@
   <div class='row'>
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <div class="card text-white alert-{{ user.color }} mb-3">
-        <img class="card-img-top" src="{{ game.logo }}" alt="Card image cap">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ game.name }}</h5>
-          <p class="card-text">{{ game.description }}</p>
-          <hr>
-          <img class="rounded-circle border-{{ user.color }}" src="{{ user.photo }}" alt=""> <h6>{{ user.name }}</h6>
+      <div class="card text-white alert-primary mb-3">
+          <img class="card-img-top" src="{{ game.logo }}" alt="Card image cap">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ game.name }}</h5>
+            <p class="card-text">{{ game.description }}</p>
+            <hr>
+            <div class="row">
+              <div *ngFor="let user of users" class="col-sm-3">
+                  <img class="rounded-circle border-{{ user.color }}" src="{{ user.photo }}" alt="">
+                  <h6>{{ user.name }}</h6>
+                  <div *ngIf="multiUsers; else elseBlock">
+                    <button class="btn btn-success" (click)="win(user)">Gagnant !</button>
+                  </div>
+                  <ng-template #elseBlock>
+                      <button class="btn btn-outline-success" (click)="win(user)">✅</button>
+                      <button style="float: right" class="btn btn-outline-danger pull-right" (click)="loose(user)">❌</button>
+                  </ng-template>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card-footer pull-right">
-          <button class="btn btn-success" (click)="win()">Réussi !</button>
-          <button style="float: right" class="btn btn-danger pull-right" (click)="loose()">Raté ...</button>
-        </div>
-      </div>
     </div>
   </div>
 </div>
 
 <div [class.d-none]="hideReward" class="alert alert-success alert-dismissible fade show">
-  <strong>Félicitations {{ user.name }} !</strong>
+  <strong>La récompense du gagnat !</strong>
   <hr>
   {{ reward?.name }}: {{ reward?.description }}
   <button (click)="relaunchTimer()" type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -29,7 +37,7 @@
 </div>
 
 <div [class.d-none]="hidePledge" class="alert alert-danger alert-dismissible fade show">
-  <strong>Dommage {{ user.name }} ...</strong>
+  <strong>Et voici le gage pour le(s) perdant(s) ...</strong>
   <hr>
   {{ pledge?.name }}: {{ pledge?.description }}
   <button (click)="relaunchTimer()" type="button" class="close" data-dismiss="alert" aria-label="Close">

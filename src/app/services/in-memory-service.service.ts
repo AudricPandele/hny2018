@@ -103,38 +103,65 @@ export class InMemoryServiceService implements InMemoryDbService {
         1,
         'Dégustation',
         'http://www.le-roitelet.com/media/cache/photo_medium/uploads/img/activity/iStock_000033522418Small.jpg',
-        'Manger un des aliments a l\'aveugle.'
+        'Manger un des aliments a l\'aveugle.',
+        1
       ),
       new Game(
         2,
         'Touché',
         // tslint:disable-next-line:max-line-length
         'https://media.ouest-france.fr/v1/pictures/3d52c4f710df958f37e03ceb805ad42b-gilbert-montagne-raconte-comment-il-perdu-la-vue-la-naissance.jpg?width=1260&height=712&fill=0&focuspoint=50%2C25&cropresize=1',
-        'Mettre la main dans un des pots.'
+        'Mettre la main dans un des pots.',
+        1
       ),
       new Game(
         3,
         'Mime',
         'https://image.freepik.com/free-photo/mime-shows-at-something-invisible-on-his-palm_1304-2808.jpg',
-        'Mimer une activité en moins de 30 secondes.'
+        'Mimer une activité en moins de 30 secondes.',
+        1
       ),
       new Game(
         4,
         'Question',
-        'http://quipoquiz.com/fb-quipoquiz-1200x630.png',
-        'répondre a une question sur QuipoQuiz.'
+        'https://quipoquiz.com/sn_uploads/fck/ogimage.jpg',
+        'répondre a une question sur QuipoQuiz.',
+        1
       ),
       new Game(
         3,
         'Jeu mario party',
         'https://cdn03.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/H2x1_NSwitch_SuperMarioParty.jpg',
-        'Gagner un mini-jeu Mario Party au hasard.'
+        'Gagner un mini-jeu Mario Party au hasard.',
+        4
       ),
       new Game(
         4,
         'Course mario kart',
         'https://cdn03.nintendo-europe.com/media/images/10_share_images/games_15/wiiu_14/SI_WiiU_MarioKart8_image1600w.jpg',
-        'Gagner une course Mario Kart au hasard en 100 CC.'
+        'Gagner une course Mario Kart au hasard en 100 CC.',
+        4
+      ),
+      new Game(
+        5,
+        'Dégustation dragés',
+        'https://medias.spotern.com/spots/w640/155473-1541339573.jpg',
+        'Manger au hasard un dragé de bertie crochue.',
+        1
+      ),
+      new Game(
+        6,
+        'Duel cloche pied',
+        'https://www.fdmt.ca/img/product/I%C2%A62631000_1-B.jpg',
+        'Gagner une course de cloche pied en duel.',
+        2
+      ),
+      new Game(
+        7,
+        'Course cloche pied',
+        'https://www.fdmt.ca/img/product/I%C2%A62631000_1-B.jpg',
+        'Gagner une course de cloche pied tous ensemble.',
+        4
       )
     ];
 
