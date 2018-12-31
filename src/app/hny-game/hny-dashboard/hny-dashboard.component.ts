@@ -64,9 +64,9 @@ export class HnyDashboardComponent implements OnInit {
     audio.play();
   }
 
-  gameFinished(hide) {
-    this.timeLeft = 2;
-    this.hideTimer = hide;
+  gameFinished($event) {
+    this.timeLeft = $event.time;
+    this.hideTimer = $event.event;
     this.ngOnInit();
   }
 

@@ -152,14 +152,14 @@ export class InMemoryServiceService implements InMemoryDbService {
       new Game(
         6,
         'Duel cloche pied',
-        'https://www.fdmt.ca/img/product/I%C2%A62631000_1-B.jpg',
+        'https://www.telegraph.co.uk/content/dam/athletics/Enertor/usain-bolt-running.jpg?imwidth=450',
         'Gagner une course de cloche pied en duel.',
         2
       ),
       new Game(
         7,
         'Course cloche pied',
-        'https://www.fdmt.ca/img/product/I%C2%A62631000_1-B.jpg',
+        'https://www.telegraph.co.uk/content/dam/athletics/Enertor/usain-bolt-running.jpg?imwidth=450',
         'Gagner une course de cloche pied tous ensemble.',
         4
       )

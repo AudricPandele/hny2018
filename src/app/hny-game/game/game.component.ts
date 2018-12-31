@@ -13,7 +13,7 @@ import { Reward } from 'src/app/shared/models/Reward.model';
 })
 export class GameComponent implements OnInit {
   @Input() hideTimer: boolean;
-  @Output() hideTimerChange = new EventEmitter<boolean>();
+  @Output() hideTimerChange = new EventEmitter<any>();
   @Input() game: Game;
   @Input() users: Array<User>;
   hideReward = true;
@@ -123,7 +123,11 @@ export class GameComponent implements OnInit {
     );
   }
 
+  skip() {
+    this.hideTimerChange.emit({ event: false, time: 1 });
+  }
+
   relaunchTimer() {
-    this.hideTimerChange.emit(false);
+    this.hideTimerChange.emit({ event: false, time: 900 });
   }
 }
